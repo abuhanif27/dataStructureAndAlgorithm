@@ -101,7 +101,21 @@ class LinkedList:
             prev = current
             current = next_node
         self.head = prev
-        print("Linked list reversed successfully")
+        print("\nLinked list reversed successfully")
+
+    def reverse_2(self):
+        if self.length <= 1:
+            return
+        current = self.head
+        self.head = self.tail
+        self.tail = current
+        before = None
+        after = current.next  # not necessary just include for more clarity
+        for _ in range(self.length):
+            after = current.next
+            current.next = before
+            before = current
+            current = after
 
     def empty_list(self):
         self.head = None
@@ -146,6 +160,6 @@ if __name__ == '__main__':
     ll.print_list()  # Output: 2 -> 1 -> 3
     ll.get_info()  # Output: Head: 2, Tail: 3, Length: 3
 
-    ll.reverse()  # Reverses the list: 3 -> 1 -> 2
+    ll.reverse_2()  # Reverses the list: 3 -> 1 -> 2
     ll.print_list()  # Output: 3 -> 1 -> 2
     ll.get_info()  # Output: Head: 3, Tail: 2, Length: 3
