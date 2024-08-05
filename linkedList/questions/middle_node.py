@@ -1,4 +1,4 @@
-from my_linked_list import LinkedList
+from linkedList.my_linked_list import LinkedList
 
 
 class InsufficientItem(Exception):
